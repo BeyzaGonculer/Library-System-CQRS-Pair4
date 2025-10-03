@@ -25,5 +25,13 @@ public class Book {
         }
     }
 
+    private static void validatePageCount(Integer pageCount){
+
+        if (pageCount <= 0){
+            throw new IllegalArgumentException("Page count cannot be zero and negative");
+        }
+    }
+
+
 
 }
