@@ -44,6 +44,16 @@ public class Book {
         }
     }
 
+    private static void validateAvailableCopy(Integer totalCopies, Integer availableCopies){
+        if(availableCopies > totalCopies){
+            throw new IllegalArgumentException("Available copy cannot be bigger than total copy");
+        }
+
+        if (availableCopies < 0){
+            throw new IllegalArgumentException("Available copy cannot be negative");
+        }
+    }
+
 
 
 }
