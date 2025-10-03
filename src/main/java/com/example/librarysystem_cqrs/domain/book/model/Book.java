@@ -3,11 +3,12 @@ package com.example.librarysystem_cqrs.domain.book.model;
 public class Book {
 
     private final BookId id;
-    private final String name;
-    private final Integer pageCount;
-    private final String isbnNumber;
-    private final Integer totalCopies;
-    private final Integer availableCopies;
+    private String name;
+    private Integer pageCount;
+    private String isbnNumber;
+    private Integer totalCopies;
+    private Integer availableCopies;
+
 
     private Book(BookId id, String name, Integer pageCount, String isbnNumber, Integer totalCopies, Integer availableCopies) {
         this.id = id;
@@ -16,6 +17,65 @@ public class Book {
         this.isbnNumber = isbnNumber;
         this.totalCopies = totalCopies;
         this.availableCopies = availableCopies;
+    }
+
+    public BookId getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void rename(String name) {
+        validateName(name);
+        this.name = name;
+    }
+
+    public Integer getPageCount() {
+        return pageCount;
+    }
+
+    public void updatePageCount(Integer pageCount) {
+        validatePageCount(pageCount);
+        this.pageCount = pageCount;
+    }
+
+    public String getIsbnNumber() {
+        return isbnNumber;
+    }
+
+    public void updateIsbnNumber(String isbnNumber) {
+        validateIsbnNumber(isbnNumber);
+        this.isbnNumber = isbnNumber;
+    }
+
+    public Integer getTotalCopies() {
+        return totalCopies;
+    }
+
+    public void updateTotalCopies(Integer quantityToRestock) {
+        if (quantityToRestock == null )
+            throw new IllegalArgumentException("Quantity cannot be null.");
+        if(Math.abs(quantityToRestock) > totalCopies && quantityToRestock<0){
+            throw new IllegalArgumentException("Quantity amount cannot be smaller than total copy");
+        }
+        this.totalCopies += quantityToRestock;
+    }
+
+    public Integer getAvailableCopies() {
+        return availableCopies;
+    }
+
+    public void updateAvailableCopies(Integer quantity) {
+        validateAvailableCopy(this.totalCopies, this.availableCopies);
+        if (quantity == null )
+            throw new IllegalArgumentException("Quantity cannot be null.");
+        if(Math.abs(quantity) > totalCopies && quantity<0){
+            throw new IllegalArgumentException("Quantity amount cannot be smaller than total copy");
+        }
+        this.availableCopies += quantity;
+
     }
 
     public static Book create(String name, Integer pageCount, String isbnNumber, Integer totalCopies, Integer availableCopies){
@@ -66,7 +126,12 @@ public class Book {
         if (availableCopies < 0){
             throw new IllegalArgumentException("Available copy cannot be negative");
         }
+
+
     }
+
+
+
 
 
 
