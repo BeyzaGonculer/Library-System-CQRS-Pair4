@@ -17,4 +17,13 @@ public class Book {
         this.totalCopies = totalCopies;
         this.availableCopies = availableCopies;
     }
+
+    private static void validateName(String name){
+
+        if(name.length() <= 0){
+            throw new IllegalArgumentException("Book name cannot be zero and negative");
+        }
+    }
+
+
 }
