@@ -1,10 +1,12 @@
 package com.example.librarysystem_cqrs.domain.book.repository;
 
 import com.example.librarysystem_cqrs.domain.book.model.Book;
+import com.example.librarysystem_cqrs.domain.book.model.BookId;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public interface BookRepository {
 
@@ -17,5 +19,7 @@ public interface BookRepository {
             int authorId,
             String status
     );
-    Optional<Book> findByIsbnNumber(String isbn);
+    Optional<Book> findById(BookId id);
+
+    Book save(Book book);
 }

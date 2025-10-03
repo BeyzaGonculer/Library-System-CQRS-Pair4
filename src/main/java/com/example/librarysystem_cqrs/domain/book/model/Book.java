@@ -90,6 +90,14 @@ public class Book {
 
     }
 
+    public static Book rehydrate(BookId id, String name, Integer pageCount, String isbnNumber, Integer totalCopies, Integer availableCopies)
+    {
+        return new Book(id, name, pageCount, isbnNumber, totalCopies, availableCopies);
+    }
+
+
+
+
 
 
     private static void validateName(String name){
