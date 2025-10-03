@@ -18,6 +18,20 @@ public class Book {
         this.availableCopies = availableCopies;
     }
 
+    public static Book create(String name, Integer pageCount, String isbnNumber, Integer totalCopies, Integer availableCopies){
+
+        validateName(name);
+        validatePageCount(pageCount);
+        validateIsbnNumber(isbnNumber);
+        validateTotalCopy(totalCopies);
+        validateAvailableCopy(totalCopies,availableCopies);
+
+        return new Book(BookId.generate(), name, pageCount, isbnNumber, totalCopies, availableCopies);
+
+    }
+
+
+
     private static void validateName(String name){
 
         if(name.equals(null)){
