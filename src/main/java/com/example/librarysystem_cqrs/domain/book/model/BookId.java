@@ -10,4 +10,7 @@ public record BookId(UUID value) implements Serializable {
         Objects.requireNonNull(value, "Value for BookId cannot be null");
     }
 
+    public static BookId generate(){
+        return new BookId(UUID.randomUUID());
+    }
 }
