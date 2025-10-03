@@ -38,6 +38,12 @@ public class Book {
         }
     }
 
+    private static void validateTotalCopy(Integer totalCopies){
+        if (totalCopies <= 0){
+            throw new IllegalArgumentException("Total copy cannot be zero and negative");
+        }
+    }
+
 
 
 }
