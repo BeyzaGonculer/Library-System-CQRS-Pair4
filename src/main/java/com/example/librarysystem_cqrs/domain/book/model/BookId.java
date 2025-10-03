@@ -1,4 +1,13 @@
 package com.example.librarysystem_cqrs.domain.book.model;
 
-public class BookId {
+import java.io.Serializable;
+import java.util.Objects;
+import java.util.UUID;
+
+public record BookId(UUID value) implements Serializable {
+
+    public BookId{
+        Objects.requireNonNull(value, "Value for BookId cannot be null");
+    }
+
 }
