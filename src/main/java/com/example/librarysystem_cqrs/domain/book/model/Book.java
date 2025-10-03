@@ -20,8 +20,8 @@ public class Book {
 
     private static void validateName(String name){
 
-        if(name.length() <= 0){
-            throw new IllegalArgumentException("Book name cannot be zero and negative");
+        if(name.equals(null)){
+            throw new IllegalArgumentException("Book name cannot be null");
         }
     }
 
