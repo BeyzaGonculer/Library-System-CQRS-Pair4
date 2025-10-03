@@ -32,6 +32,12 @@ public class Book {
         }
     }
 
+    private static void validateIsbnNumber(String isbnNumber){
+        if(isbnNumber.length() != 8){
+            throw new IllegalArgumentException("ISBN number length should be 8");
+        }
+    }
+
 
 
 }
