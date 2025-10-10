@@ -55,5 +55,41 @@ public class Personel {
     }
 
 
+    private static void validateFirstName(String firstName){
+
+        if(firstName.equals(null)){
+            throw new IllegalArgumentException("First name cannot be null");
+        }
+    }
+
+    private static void validateLastName(String lastName){
+
+        if(lastName.equals(null)){
+            throw new IllegalArgumentException("Last name cannot be null");
+        }
+    }
+
+    private static void validateEmail(String email){
+
+        if(email.equals(null)){
+            throw new IllegalArgumentException("Email address cannot be null");
+        }
+        if(!email.contains("@")){
+            throw new IllegalArgumentException("Email address must be contain @");
+        }
+    }
+
+    private static void validatePhoneNumber(String phoneNumber){
+
+        if(phoneNumber.equals(null)){
+            throw new IllegalArgumentException("Phone number cannot be null");
+        }
+
+        if (phoneNumber.length() != 10){
+            throw new IllegalArgumentException("Phone number length should be 10 (Ex: (546) 456 87 98");
+        }
+    }
+
+
 }
 
