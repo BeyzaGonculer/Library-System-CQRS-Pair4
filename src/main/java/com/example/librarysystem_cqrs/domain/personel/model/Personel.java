@@ -27,6 +27,7 @@ public class Personel {
 
 
     public void updateFirstName(String firstName) {
+        validateFirstName(firstName);
         this.firstName = firstName;
     }
 
@@ -35,6 +36,7 @@ public class Personel {
     }
 
     public void updateLastName(String lastName) {
+        validateLastName(lastName);
         this.lastName = lastName;
     }
 
@@ -43,6 +45,7 @@ public class Personel {
     }
 
     public void updateEmail(String email) {
+        validateEmail(email);
         this.email = email;
     }
 
@@ -51,6 +54,7 @@ public class Personel {
     }
 
     public void updatePhoneNumber(String phoneNumber) {
+        validatePhoneNumber(phoneNumber);
         this.phoneNumber = phoneNumber;
     }
 
